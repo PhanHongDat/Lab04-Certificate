@@ -13,7 +13,7 @@ e_int = 65537
 file_signature_hex = "signature_final0.hex" # File chứa chữ ký ở dạng hex (từ Bước 3)
 file_c0_body = "c0_body.bin" # File chứa phần thân chứng chỉ đã được ký (từ Bước 4)
 
-# Chọn thuật toán mã hóa được sử dụng, vì đang sử dụng thuật toán mã hóa SHA256 nên chọn nó
+# Chọn thuật toán mã hóa được sử dụng, vì đang sử dụng thuật toán mã hóa SHA256 nên chọn
 chosen_hash_algorithm = hashes.SHA256()
 
 
@@ -100,10 +100,10 @@ try:
         signature_bytes,
         message_bytes,          # Dữ liệu gốc đã được ký (nội dung của c0_body.bin)
         padding.PKCS1v15(),     # Sơ đồ đệm phổ biến cho chữ ký RSA
-        chosen_hash_algorithm   # Thuật toán hash đã dùng. Phải khớp với chứng chỉ!
+        chosen_hash_algorithm   # Thuật toán hash đã dùng. 
     )
-    print(" Chữ ký HỢP LỆ! (Signature is VALID!) ") 
+    print(" Chữ ký HỢP LỆ!") 
 except InvalidSignature:
-    print(" Chữ ký KHÔNG HỢP LỆ! (Signature is INVALID!) ") 
+    print(" Chữ ký KHÔNG HỢP LỆ!") 
 except Exception as e:
     print(f"Đã xảy ra lỗi trong quá trình xác minh: {e}")
